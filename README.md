@@ -1,5 +1,34 @@
 # AVC Team 5
 
+#List of team members and their contact numbers
+Evelyn Salim: salimevel@myvuw.ac.nz
+Riana Pho: phoriana@myvuw.ac.nz
+Ju Ran: juran@myvuw.ac.nz
+James Small: smalljame@myvuw.ac.nz
+
+#Roles 
+- 3 software people: Riana, Evelyn, Ran
+- 1 hardware person: James
+
+#General design of the software. How it is divided into pieces
+
+
+
+#Deadlines
+- AVC project plan 2.5% 12 may
+- Progress report 2.5% 23 may
+- Robot testing 10% 31 may
+- Project report 15% 3 June
+
+
+
+
+
+
+
+
+
+
 
 
 ## Getting started
