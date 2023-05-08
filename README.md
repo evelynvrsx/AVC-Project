@@ -17,7 +17,7 @@ James Small: smalljame@myvuw.ac.nz
 
 #General design of the software. How it is divided into pieces
 - Open the gate by exchange with the server over WiFi
-    - 
+    - The general design of the sftware will have a function that can open the gate and we can execute
 
 - To follow the wiggly line, we detect the black pixels by getting the (000) and (111)
     - Take an array of the white pixels (which contains mostly 0s) and multiply each element of it with indexes - middle array
