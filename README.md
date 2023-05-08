@@ -1,5 +1,10 @@
 # AVC Team 5
 
+# links to slides
+https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2023T1/LectureSchedule/ENGR101_Lecture14.pdf
+https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2023T1/LectureSchedule/ENGR101_Lecture15.pdf
+
+
 #List of team members and their contact numbers
 Evelyn Salim: salimevel@myvuw.ac.nz
 Riana Pho: phoriana@myvuw.ac.nz
@@ -11,7 +16,22 @@ James Small: smalljame@myvuw.ac.nz
 - 1 hardware person: James
 
 #General design of the software. How it is divided into pieces
+- Open the gate by exchange with the server over WiFi
+    - 
 
+- To follow the wiggly line, we detect the black pixels by getting the (000) and (111)
+    - Take an array of the white pixels (which contains mostly 0s) and multiply each element of it with indexes - middle array
+    - (maybe) Turn the frame into greyscale 
+    - Check whether pixel is black or not: If the rgb is below a certain threshold. the pixel is black 
+    - Code to get white pixel: get_pixel(row,col,3)
+        - Could put this in a for loop and if its white, return 1, if its black, return 0
+    - Use ratio so that its adaptable with lighting
+    - Trialling an array of horizontal pixels at a set height of an image 
+    - (maybe) Adding all the elements in an array together using the 'inner_product' to get which path to go to 
+       0 is middle, when you go to negative, its left, and positive to right, and adjust the robot to 0 for it to stay in the middle 
+    - 
+
+- 
 
 
 #Deadlines
