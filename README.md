@@ -17,7 +17,7 @@ James Small: smalljame@myvuw.ac.nz
 
 #General design of the software. How it is divided into pieces
 - Open the gate by exchange with the server over WiFi
-    - The general design of the sftware will have a function that can open the gate and we can connect to the server by requesting a        connection, 
+    - The general design of the software will have a function that can open the gate and we can connect to the server by requesting a          connection, 
 
 - To follow the wiggly line, we detect the black pixels by getting the (000) and (111)
     - Take an array of the white pixels (which contains mostly 0s) and multiply each element of it with indexes - middle array
@@ -29,9 +29,23 @@ James Small: smalljame@myvuw.ac.nz
     - Trialling an array of horizontal pixels at a set height of an image 
     - (maybe) Adding all the elements in an array together using the 'inner_product' to get which path to go to 
        0 is middle, when you go to negative, its left, and positive to right, and adjust the robot to 0 for it to stay in the middle 
-    - 
+    - Make the robot follow the middle line. 
+    - When it gets to 1 way intersections, turn to the side with more black pixels 
+      Example: 111111000000 (since black pixels is the right, go to right side)
+    - When it gets to 2 way intersections, always go to the left
+    - For the 3rd 2 way intersection, it will detect 111111111 (which is all white). 
+      If it detects this, turn 180 degrees (so its facing other way)
+      It will detect a 2 way intersection again so it will turn right
+     
+- When it gets to the 3rd quadrant to 4th quadrant, detect the red pixels and move the camera up.
+    - Turn right, scan for the amount of red pixels and see whether it exceeds a certain amount. 
+    - If it does, that means the first red pole is there, approach the red pole, make it stop at a certain distance. 
+    - Scan to the left until it detects a green pole (use the same algorithm as when it detects the red pole), approach & stop 
+    - Scan to the right until it detects a blue pole (same algorithm), approach & stop
 
-- 
+    - Scan to the left to detect a red ball. (same algorithm). If it does, approach it and push it off the table. 
+      Don't make it stop at a certain distance. (maybe could use 'redcount == 2' or something?)
+
 
 
 #Deadlines
