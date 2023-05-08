@@ -1,5 +1,12 @@
 # AVC Team 5
 
+#Deadlines
+- AVC project plan 2.5% 12 may
+- Progress report 2.5% 23 may
+- Robot testing 10% 31 may
+- Project report 15% 3 June
+
+
 # links to slides
 https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2023T1/LectureSchedule/ENGR101_Lecture14.pdf
 https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2023T1/LectureSchedule/ENGR101_Lecture15.pdf
@@ -14,6 +21,7 @@ James Small: smalljame@myvuw.ac.nz
 #Roles 
 - 3 software people: Riana, Evelyn, Ran
 - 1 hardware person: James
+
 
 #General design of the software. How it is divided into pieces
 - Open the gate by exchange with the server over WiFi
@@ -48,11 +56,7 @@ James Small: smalljame@myvuw.ac.nz
 
 
 
-#Deadlines
-- AVC project plan 2.5% 12 may
-- Progress report 2.5% 23 may
-- Robot testing 10% 31 may
-- Project report 15% 3 June
+
 
 
 
