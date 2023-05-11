@@ -12,7 +12,7 @@ https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2023T1/LectureSchedule/ENGR10
 https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2023T1/LectureSchedule/ENGR101_Lecture15.pdf
 
 
-#List of team members and their contact numbers
+# List of team members and their contact numbers
 Evelyn Salim: salimevel@myvuw.ac.nz
 Riana Pho: phoriana@myvuw.ac.nz
 Ju Ran: juran@myvuw.ac.nz
@@ -20,10 +20,13 @@ James Small: smalljame@myvuw.ac.nz
 
 # Roles 
 - 3 software people: Riana, Evelyn, Ran
-- 1 hardware person: James
+  - Architect: James
+  - Tester: Riana
+  - Coordinator: Evelyn
+- 1 hardware person: Ran
 
 
-#General design of the software. How it is divided into pieces
+# General design of the software. How it is divided into pieces
 - Open the gate by exchange with the server over WiFi
     - The general design of the software will have a function that can open the gate and we can connect to the server by requesting a          connection, 
 
