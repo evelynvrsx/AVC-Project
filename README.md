@@ -59,7 +59,7 @@ James Small: smalljame@myvuw.ac.nz
 
 # Road map
  
-| start date | header |
+| start date | task description | responsible team member | end date | outcome | 
 | ------ | ------ |
 |        |        |
 |        |        |
