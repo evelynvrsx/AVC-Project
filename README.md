@@ -58,12 +58,8 @@ James Small: smalljame@myvuw.ac.nz
       Don't make it stop at a certain distance. (maybe could use 'redcount == 2' or something?)
 
 # Road map
-| Start date | Task description	 | Responsible team member |  End date | Outcome  
-| 08/05  | ------ |
-| 08/05  |        |
-| 08/05        |        |
  
-| header | header |
+| start date | header |
 | ------ | ------ |
 |        |        |
 |        |        |
