@@ -57,8 +57,11 @@ James Small: smalljame@myvuw.ac.nz
     - Scan to the left to detect a red ball. (same algorithm). If it does, approach it and push it off the table. 
       Don't make it stop at a certain distance. (maybe could use 'redcount == 2' or something?)
 
-
-
+# Road map
+| Start date | Task description |
+| 08/05      | AVC project plan |
+|        |        |
+|        |        |
 
 
 
