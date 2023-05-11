@@ -58,10 +58,10 @@ James Small: smalljame@myvuw.ac.nz
       Don't make it stop at a certain distance. (maybe could use 'redcount == 2' or something?)
 
 # Road map
- | start date | task description | task description |
+ | start date | task description | 
 | ------ | ------ |
-|        |        |
-|        |        |
+| 08/05       | AVC project plan        |
+| 08/05       | Connect gate to server and open        |
 
 
 
