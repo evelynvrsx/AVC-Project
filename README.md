@@ -58,11 +58,17 @@ James Small: smalljame@myvuw.ac.nz
       Don't make it stop at a certain distance. (maybe could use 'redcount == 2' or something?)
 
 # Road map
-| Start date | Task description                  | Responsible team member | End date | Outcome                |
-| ------     | ------                            | ------                  | ------   |  ------                | 
-| 08/05      | AVC project plan                  | Evelyn, Riana           | 12/05    | Completed project plan |
-| 08/05      | Connect gate to server and open   |Evelyn, James            | 12/05    | Completed connection   |
-| 08/05      | Construct hardware                | Ran, James              | 19/05    |  .  |
+| Start date | Task description                  | Responsible team member     | End date | Outcome                |
+| ------     | ------                            | ------                      | ------   |  ------                | 
+| 08/05      | AVC project plan                  | Evelyn, Riana               | 12/05    | Completed project plan |
+| 08/05      | Connect gate to server and open   | Evelyn, James               | 12/05    | Completed connection   |
+| 08/05      | Construct hardware                | Ran, James                  | 19/05    |  .  |
+| 08/05      | Quadrant 2 code                   | Evelyn, James, Ran, Riana   | 17/05    |  .  |
+| 08/05      | Quadrant 3 code                   | Evelyn, James, Ran, Riana   | 24/05    |  .  |
+| 08/05      | Quadrant 4 code                   | Evelyn, James, Ran, Riana   | 30/05    |  .  |
+| 12/05      | Progress report                   | Evelyn, Riana               | 23/05    |  .  |
+| 31/05      | Final testing                     |                             | 31/05    |  .  |
+
 
 
 
