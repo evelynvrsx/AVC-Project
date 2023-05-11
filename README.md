@@ -1,6 +1,6 @@
 # AVC Team 5
 
-#Deadlines
+# Deadlines
 - AVC project plan 2.5% 12 may
 - Progress report 2.5% 23 may
 - Robot testing 10% 31 may
@@ -18,7 +18,7 @@ Riana Pho: phoriana@myvuw.ac.nz
 Ju Ran: juran@myvuw.ac.nz
 James Small: smalljame@myvuw.ac.nz
 
-#Roles 
+# Roles 
 - 3 software people: Riana, Evelyn, Ran
 - 1 hardware person: James
 
