@@ -65,7 +65,7 @@ James Small: smalljame@myvuw.ac.nz
 | 08/05      | Construct hardware                | Ran, James                  | 19/05    | In progress  |
 | 12/05      | Quadrant 2 code - To follow the line, we detect the black pixels by getting the (000) and (111), store in an array, Error is 0 if line is in the middle of the screen. Positive if line is to the left of the centre, negative otherwise.    | Evelyn, James, Ran, Riana   | 17/05    | In progress  |
 | 17/05      | Quadrant 3 code - Approach 2 way intersection, if white is detected, turn 180 degrees           | Evelyn, James, Ran, Riana   | 24/05    |  .  |
-| 24/05      | Quadrant 4 code - Scan for the amount of red pixels, if it exceeds certain amount approach and stop at certain distance. Same process with green and blue pole. Same algorithm with for red ball, if approaches push it off the table.                  | Evelyn, James, Ran, Riana   | 30/05    |  .  |
+| 24/05      | Quadrant 4 code - Scan for the amount of red pixels, if it exceeds certain amount approach and stop at certain distance. Same process with green and blue pole. Same algorithm for red ball, if approaches, push off the table.                  | Evelyn, James, Ran, Riana   | 30/05    |  .  |
 | 12/05      | Progress report                   | Evelyn, Riana               | 23/05    |  .  |
 | 31/05      | Final testing                     |                             | 31/05    |  .  |
 
