@@ -38,14 +38,14 @@ int main(){
 	
 	
 	//testesttest
-	vector<int> pixels(320); 		//array to store pixels (0s and 1s)
+	vector<int> pixels(240); 		//array to store pixels (0s and 1s)
 	//vector<int> indexpixel(320); 	//array to store indexpixel (-160 to 160)
 	
 	int treshold = 40;
 	
 	open_screen_stream();
 	take_picture();
-	for (int col = 0; col < 320; col++) {
+	for (int col = 0; col < 240; col++) {
 		//set pixel to black if its less than treshold
 		if(get_pixel(120, col, 3) < treshold){
 			pixels[col] = 1; 
@@ -55,8 +55,17 @@ int main(){
 			pixels[col] = 0; 
 			//indexpixel[col] = 0;
 		}
+		iota(//begin,end,-120)
 		
+		//define movement based on the error
 		
+		if(error > //threshold){
+		//turn right
+		else if(error < 1 && error > -1){
+			//straight
+		}
+		else{
+			//adjust left
 	}
 	close_screen_stream();
 	return 0;
