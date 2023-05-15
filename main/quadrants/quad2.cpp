@@ -1,4 +1,4 @@
-//Quadrant 2 
+/*//Quadrant 2 
     open_screen_stream();
     
     // make 1000 runs  
@@ -19,9 +19,20 @@
 	close_screen_stream();
 	return 0;
 	
-	
-	
-	
+	*/
+#include <iostream>
+#include <array>
+#include <vector> /*will delet this in the future becuase arrays will be easier to use 
+and the fact that it doesn't need to change means no reason for vectors
+*/
+#include <iterator>
+#include <numeric>
+#include <cstring>
+#include <array>
+#include "E101.h" 
+
+using namespace std;	
+bool quad2(){
 	//testesttest
 	vector<int> pixels(240); 		//array to store pixels (0s and 1s)
 	//vector<int> indexpixel(320); 	//array to store indexpixel (-160 to 160)
@@ -40,12 +51,13 @@
 			pixels[col] = 0; 
 			//indexpixel[col] = 0;
 		}
-		iota(//begin,end,-120)
+		//iota();//begin,end,-120)
 		
 		//define movement based on the error
 		
-		if(error > //threshold){
+		if(error > x ){ //x = threshold
 		//turn right
+		}
 		else if(error < 1 && error > -1){
 			//straight
 		}

@@ -1,11 +1,12 @@
 #include "gate.hpp"
+#include "quad2.hpp"
 #include "E101.h"
 #include <iostream>
 
 using namespace std;
 
 int main(){
-
+    
     int error = init(0);
     cout<< "Error count: " << error <<endl;
 
@@ -16,7 +17,20 @@ int main(){
     update_screen();
     //end of camera code
 
-    gate_open();
+    int quad = 0;
+    while(true){
+        switch (quad)
+        {
+        case 0:
+            gate_open();
+            quad = 1;
+            break;
+        case 1:
+            quad2();
+        
+
+        }
+    }
 
     /*check motors
     set_motors(1, 47);
