@@ -24,6 +24,7 @@ int main(){
     set_motors(3, 47);
     set_motors(4, 47);
     set_motors(5, 47);
+    hardware_exchange();
     //PLEASE REMOVE AFTER USE
     //WARNING!! DO NOT UNPLUG THE MOTOR CABLES AFTER THE HARDWARE IS DONE!!
 
