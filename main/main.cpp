@@ -18,16 +18,16 @@ int main(){
 
     gate_open();
 
-    //check motors
+    /*check motors
     set_motors(1, 47);
     set_motors(2, 47);
-    set_motors(3, 47);
+    set_motors(3, 47);w
     set_motors(4, 47);
     set_motors(5, 47);
     hardware_exchange();
     //PLEASE REMOVE AFTER USE
     //WARNING!! DO NOT UNPLUG THE MOTOR CABLES AFTER THE HARDWARE IS DONE!!
-
+    */
     stoph(); // do not move this anywhere in the system.
     return 0;   
 }
