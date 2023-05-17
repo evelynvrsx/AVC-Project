@@ -29,10 +29,10 @@ and the fact that it doesn't need to change means no reason for vectors
 #include <numeric>
 #include <cstring>
 #include <array>
-#include "E101.h" 
+#include "../include_files/E101.h" 
 
 using namespace std;	
-bool quad2(){
+void quad2(){
 	//testesttest
 	vector<int> pixels(240); 		//array to store pixels (0s and 1s)
 	//vector<int> indexpixel(320); 	//array to store indexpixel (-160 to 160)
@@ -65,6 +65,6 @@ bool quad2(){
 			//adjust left
 	}
 	close_screen_stream();
-	return 0;
+	//return 0;
 		
 }

@@ -1,2 +1,2 @@
 #pragma once
-bool quad2();
+void quad2(void);

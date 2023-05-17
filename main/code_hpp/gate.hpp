@@ -1,2 +1,2 @@
 #pragma once
-bool gate_open();
+void gate_open(void);

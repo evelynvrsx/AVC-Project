@@ -4,9 +4,9 @@
 #include <numeric>
 #include <cstring>
 #include <array>
-#include "E101.h"
+#include "../include_files/E101.h"
 
-bool gate_open(){
+void gate_open(){
 	//Quadrant 1 - Opening the gate 
     int port  = 1024;
     char server_addr[] = "130.195.3.91";
@@ -21,10 +21,11 @@ bool gate_open(){
 
     if (connection > 0){
         std::cout<<"gate opened successfully"<<std::endl;
-        return 1;
+        //return 1;
     } else{
+
         std::cout<<"gate failed to open"<<std::endl;
-        return 0;
+        //return 0;
     }
     
 }
