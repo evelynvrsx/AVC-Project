@@ -46,9 +46,3 @@ void servo_full_down(){
     set_motors(SERVO, 30);
     hardware_exchange();
 }
-int main (){
-    init(0);
-    servo_full_up();
-
-    return 0;
-}
