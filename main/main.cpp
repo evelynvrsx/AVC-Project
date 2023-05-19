@@ -3,6 +3,7 @@
 #include "../include/quad2.hpp"
 #include "E101.h"
 
+/* main will hold a switch case to switch between algorithims*/
 int main(){
     
     int error = init(0);
@@ -12,10 +13,10 @@ int main(){
     open_screen_stream();//only needed to be called once
 
     //end of camera code
-    gate_open();
+    
 
     int quad = 0;
-
+    /* switch case to change between algorithims*/
     switch (quad){
         case 0:
             gate_open();

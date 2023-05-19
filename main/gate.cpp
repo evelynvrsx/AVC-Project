@@ -6,6 +6,7 @@
 #include <array>
 #include "E101.h"
 
+/*Pings gate server and requests to open gate */
 void gate_open(){
 	//Quadrant 1 - Opening the gate 
     int port  = 1024;
