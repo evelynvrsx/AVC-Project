@@ -19,14 +19,7 @@ void gate_open(){
     receive_from_server(password);
     send_to_server(password);
 
-    if (connection > 0){
-        std::cout<<"gate opened successfully"<<std::endl;
-        //return 1;
-    } else{
 
-        std::cout<<"gate failed to open"<<std::endl;
-        //return 0;
-    }
     
 }
     

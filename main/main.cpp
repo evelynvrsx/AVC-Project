@@ -4,8 +4,10 @@
 #include <numeric>
 #include <cstring>
 #include <array>
+
+#include "../include/gate.hpp"
+#include "../include/quad2.hpp"
 #include "E101.h"
-#include "code_hpp/gate.hpp"
 
 int main(){
     
@@ -14,21 +16,21 @@ int main(){
 
     //camera functions
     open_screen_stream();//only needed to be called once
-    //once we test the wiggly lines, we can see how off is the iota from the center 
-    take_picture();
-    update_screen();
+
     //end of camera code
     gate_open();
-    /*check motors
-    set_motors(1, 47);
-    set_motors(2, 47);
-    set_motors(3, 47);w
-    set_motors(4, 47);
-    set_motors(5, 47);
-    hardware_exchange();
-    //PLEASE REMOVE AFTER USE
-    //WARNING!! DO NOT UNPLUG THE MOTOR CABLES AFTER THE HARDWARE IS DONE!!
-    */
+
+    int quad = 0;
+
+    switch (quad){
+        case 0:
+            gate_open();
+            quad = 1;
+        case 1:
+            quad2();
+
+   
+    }
     stoph(); // do not move this anywhere in the system.
     return 0;   
 }

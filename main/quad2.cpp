@@ -38,6 +38,8 @@ void quad2(){
 	//vector<int> indexpixel(320); 	//array to store indexpixel (-160 to 160)
 	
 	int treshold = 40;
+	int pix[240];
+	
 	
 	open_screen_stream();
 	take_picture();
