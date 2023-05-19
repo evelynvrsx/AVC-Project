@@ -1,10 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <iterator>
-#include <numeric>
-#include <cstring>
-#include <array>
-
 #include "../include/gate.hpp"
 #include "../include/quad2.hpp"
 #include "E101.h"
