@@ -37,6 +37,8 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "files.associations": {
     "array": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "new": "cpp",
+    "iostream": "cpp"
   }
 }

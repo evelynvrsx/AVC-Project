@@ -4,7 +4,7 @@
 #include <cstring>
 #include <array>
 #include <algorithm>
-#include "../include/motor_control.hpp"
+#include "../include/motor_contorl.hpp"
 
 using namespace std;
 
@@ -25,7 +25,7 @@ int main(){
     //Quadrant 2 
     int pixels[320];		//array to store pixels 0s and 1s
     int indexpixels[320];	//array to store 0s and 1s minus the index
-    int treshold = 60;
+    int treshold = 100;
     //double kp = 0.01;
     //double kd = 0;
     //double adjustment = kp * error;
