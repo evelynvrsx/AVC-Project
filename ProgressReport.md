@@ -10,10 +10,10 @@
 | 12/05      | Progress report                   | Evelyn, Riana               | 23/05    |  .  |     |
 | 31/05      | Final testing                     |                             | 31/05    |  .  |     |
 
-What went according to plan. What did not.
+What went according to plan. What did not. ==
 The connection to the server and opening the gate went according to plan and was completed on time. The construction of the hardware went well and was completed on time. Initially we intended to use a scrap 3D printed piece for the main body of the robot. We intended to design and print the parts required to complete the model. However, we ended up 3D printing the parts that connect to the Raspberry Pi and constructed the rest out of paddle pop sticks to be manage time. The code for quadrant 2 was difficult to begin and was taking longer than expected but has been mostly completed at this stage. We still need to code for quadrant 2 to use the motor controls and begin coding for quadrant 3 and 4. 
 
-What are bottlenecks, what is slowing the development
+What are bottlenecks, what is slowing the development ==
 On the 22/05, the wifi server went down making it difficult to test and is therfore slowing the development. Some mof the robot's pieces are not measured correctly which is therefore slowing down the testing of the code. 
 
-Team recommendation on how to advance the Project
+Team recommendation on how to advance the Project ==
