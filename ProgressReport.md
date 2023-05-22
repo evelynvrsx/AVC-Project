@@ -16,4 +16,4 @@ The connection to the server and opening the gate went according to plan and was
 What are bottlenecks, what is slowing the development ==
 On the 22/05, the wifi server went down making it difficult to test and is therfore slowing the development. The robot deisng too longer tha expected and it cam to the point where we didnt have enough time to make a clean and polished design, we just needed a body that could perfomr the expected task hence it was constructed out of popscal sticks this held back development of the robots code due to inability to test it. 
 
-Team recommendation on how to advance the Project ==
+Team recommendation on how to advance the Project == We must quickly finsh the quad2 so that the robot can use the motor controls correctly and navigate the course, we then shoudl begin code for quadrant 3 and get it working before the end of this week.
