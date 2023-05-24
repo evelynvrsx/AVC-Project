@@ -1,0 +1,28 @@
+#include "E101.h"
+
+#define RIGHT_MOTOR 1 
+#define LEFT_MOTOR  5
+#define SERVO 3
+
+void move_forward(unsigned char speed ){
+    int right = 48 - speed;
+    int left = 48 + speed;
+    set_motors(RIGHT_MOTOR, right);
+    set_motors(LEFT_MOTOR, left);
+    hardware_exchange();
+}
+
+void turn_right(unsigned char time, unsigned char pwm){
+	set_motors(RIGHT_MOTOR, pwm);
+	set_motors(LEFT_MOTOR, pwm);
+	hardware_exchange():
+	        set_motors(RIGHT_MOTOR, pwm);
+        set_motors(LEFT_MOTOR, pwm);sleep1(time);
+	
+int main (){
+    init(0);
+    move_forward(10);
+    sleep1(5000);
+    move_forward(0);
+    return 0;
+}

@@ -5,6 +5,7 @@
 #include <cstring>
 #include <array>
 #include "E101.h"
+#include "../include/motor_contorl.hpp"
 
 /*Pings gate server and requests to open gate */
 void gate_open(){
@@ -19,6 +20,11 @@ void gate_open(){
     char password[24];
     receive_from_server(password);
     send_to_server(password);
+    sleep1(200);
+    move_forward(15);
+    sleep1(200);
+    stop();
+
 
 
     
