@@ -5,6 +5,7 @@
 #include <array>
 #include <algorithm>
 #include "../include/motor_control.hpp"
+#include <ctime>
 
 using namespace std;
 
@@ -28,9 +29,9 @@ int main(){
     int treshold = 100;
     double kp = 0.14;
     double kd = 0.05;
-    double previous_error = 0;
+    double previous_error = time(NULL);
     double previous_time = 0;
-    double current_error;
+    double error;
     double current_time;
     
     double middle_point = 120;
@@ -42,6 +43,7 @@ int main(){
 		open_screen_stream();
 		take_picture();
 		update_screen();
+		current_time = time(NULL) +1;
 		
 		//check the line
 		for (int col = 0; col < 320; col++) {
@@ -74,29 +76,26 @@ int main(){
 			//}
 			
 			// Calculate the sum of multiplied elements
-			int error = 0;
-			for (unsigned int i = 0; i < 320; i++) {
-				//error += checkpixel[i];
-				error += indexpixels[i];
-			}
-			std::cout << "Sum: " << error << std::endl;
-			
-			//define movement based on error
-			//if (error >= -10 || error <= 10) {
-				//move_forward(16);
-			//}
-			
-			//current time = timefunction
-
-			double adjustment = kp * error + kd * ((current_error - previous_error)/(current_time - previous_time)) ;
-			previous_error = current_error;
-			previous_time = current_time;
-			
-			//define movement based on adjustment
-			if (adjustment == 0) {
-				move_forward(16);
-			}
 		}
+		
+		for (unsigned int i = 0; i < 320; i++) {
+			//error += checkpixel[i];
+			error += indexpixels[i];
+		}
+		std::cout << "Sum: " << error << std::endl;
+		
+		
+		//current time = timefunction
+
+		double adjustment = kp * error + kd * ((error - previous_error)/(current_time - previous_time)) ;
+		previous_error = error;
+		previous_time = current_time;
+		
+		//define movement based on adjustment
+		if (adjustment == 0) {
+			move_forward(16);
+		}
+		
 	}
     
 	

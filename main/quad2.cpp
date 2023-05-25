@@ -5,6 +5,7 @@
 #include <array>
 #include <algorithm>
 #include "../include/motor_contorl.hpp"
+#include <ctime>
 
 using namespace std;
 
@@ -12,80 +13,96 @@ int middle_point = 160;
 
 void quad2(){
 	servo_full_down();
-	//Quadrant 1 - Opening the gate 
-    int port  = 1024;
-    char server_addr[] = "130.195.3.91";
-    connect_to_server(server_addr, port);
-    char please[] = "Please";
-    send_to_server(please);
-    char password[24];
-    receive_from_server(password);
-    send_to_server(password);
-    
-    
     //Quadrant 2 
-    int pixels[320];
-	int pix;		//array to store pixels 0s and 1s
+    //array to store pixels 0s and 1s
     int indexpixels[320];	//array to store 0s and 1s minus the index
     int treshold = 100;
-    //double kp = 0.01;
-    //double kd = 0;
-    //double adjustment = kp * error;
+    double kp = 0.10;
+    double kd = 0.03;
+    double previous_error=0;
+    double previous_time  = time(NULL);
+    
+    double current_time;
+    
     double middle_point = 120;
     //double middleIndex = 160;
     
+    bool q2 = true;
     
-    iota(indexpixels, indexpixels+320, -160);
-    //check the line
-    for (int col = 0; col < 320; col++) {
-		//check the white pixels 
-		int white = get_pixel(middle_point, col, 3);
-		cout<<white<<endl;
-		if(white < treshold){
-			//black
-			indexpixels[col] = 1 * indexpixels[col];
-		}
-		else{
-			//white
-			indexpixels[col] = 0 * indexpixels[col];
-			
-		}
-		
-		// middle image (gives a range from -160 to 159
-		
+    while (true) {
+		open_screen_stream();
+		take_picture();
+		update_screen();
+		current_time = time(NULL) +1;
+		double error = 0;
+		iota(indexpixels, indexpixels+320, -160);
 
-		
-		// Subtract middle index from each element of indexpixel
-		//for (unsigned int i = 0; i < 320; i++) {
-			//indexpixels[i]= i - middleIndex;
-		//}
-		
-		// Taking the array of white pixels and multiply each element of it with middle index
-		//int checkpixel[320];
-		/*for (unsigned int i = 0; i < 320; i++) {
-			indexpixels[i] = pixels[i] * indexpixels[i];
-		
-		}
-		*/
-		
-		// Calculate the sum of multiplied elements
-		int error = 0;
-		for (unsigned int i = 0; i < 320; i++) {
+		//check the line
+		for (int col = 0; col < 320; col++) {
+			//check the white pixels 
+			int white = get_pixel(middle_point, col, 3);
 			
+			if(white < treshold){
+				//black
+				indexpixels[col] = indexpixels[col] *1;
+			}
+			else{
+				//white
+				indexpixels[col] = indexpixels[col] * 0;
+			}
+			
+				
+			// Taking the array of white pixels and multiply each element of it with middle index
+			//int checkpixel[320];
+		
+			
+			// Calculate the sum of multiplied elements
+		}
+		
+		for (unsigned int i = 0; i < 320; i++) {
+			//error += checkpixel[i];
 			error += indexpixels[i];
 		}
-		//std::cout << "error" << error << std::endl;
+	
 		
-		//define movement based on error
-		/*if (error >= -10 || error <= 10) {
+		//current time = timefunction
+
+		double adjustment = kp * error + kd * ((error - previous_error)/(current_time - previous_time)) ;
+		previous_error = error;
+		previous_time = current_time;
+		
+		//define movement based on adjustment
+		/*if (adjustment == 0) {
 			move_forward(16);
 		}*/
+		/*
+		if(adjustment >= -10 && adjustment <= 10){
+			cout<<"forward"<<endl;
+		}
+		//else if (adjustment < 0 ){
+			//cout<<"right"<<endl;
+		//}
+		else if (adjustment > 10 || adjustment < -10){
+			cout<<"left & right"<<endl;
+		}
+		*/
+		cout<<adjustment<<endl;
+		sleep1(1000);
 		
 	}
+}  
 	
-    
+	/*//Quadrant 3 
+	//check whether theres a
+	if ((error == 0) && (pixels[col] = 1)) {
+		turn(47,100); //turn left
+	}
+	else if ((error == 0) && (pixels[col] = 1)) {
+		turn(20,1000);
+	}
 	
+	
+    close_screen_stream();
+	return 0;
 
-}
-		
-
+}*/
