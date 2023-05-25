@@ -7,6 +7,9 @@
 #include "../include/motor_contorl.hpp"
 #include <ctime>
 
+#define RIGHT_MOTOR 1 
+#define LEFT_MOTOR  5
+
 using namespace std;
 
 int middle_point = 160; 
@@ -17,12 +20,10 @@ void quad2(){
     //array to store pixels 0s and 1s
     int indexpixels[320];	//array to store 0s and 1s minus the index
     int treshold = 100;
-    double kp = 0.10;
-    double kd = 0.03;
-    double previous_error=0;
-    double previous_time  = time(NULL);
+    double kp = 0.05;
+ 
     
-    double current_time;
+	double current_time;
     
     double middle_point = 120;
     //double middleIndex = 160;
@@ -30,10 +31,11 @@ void quad2(){
     bool q2 = true;
     
     while (true) {
+		int bpix = 0;
 		open_screen_stream();
 		take_picture();
 		update_screen();
-		current_time = time(NULL) +1;
+		
 		double error = 0;
 		iota(indexpixels, indexpixels+320, -160);
 
@@ -45,50 +47,37 @@ void quad2(){
 			if(white < treshold){
 				//black
 				indexpixels[col] = indexpixels[col] *1;
+				bpix++;
 			}
 			else{
 				//white
 				indexpixels[col] = indexpixels[col] * 0;
 			}
 			
-				
-			// Taking the array of white pixels and multiply each element of it with middle index
-			//int checkpixel[320];
 		
-			
-			// Calculate the sum of multiplied elements
 		}
+		double left_m = 52;
+		double right_m = 44;
 		
 		for (unsigned int i = 0; i < 320; i++) {
 			//error += checkpixel[i];
 			error += indexpixels[i];
-		}
-	
-		
-		//current time = timefunction
 
-		double adjustment = kp * error + kd * ((error - previous_error)/(current_time - previous_time)) ;
-		previous_error = error;
-		previous_time = current_time;
-		
-		//define movement based on adjustment
-		/*if (adjustment == 0) {
-			move_forward(16);
-		}*/
-		/*
-		if(adjustment >= -10 && adjustment <= 10){
-			cout<<"forward"<<endl;
 		}
-		//else if (adjustment < 0 ){
-			//cout<<"right"<<endl;
-		//}
-		else if (adjustment > 10 || adjustment < -10){
-			cout<<"left & right"<<endl;
+		if (bpix){
+			error = error/bpix;
+			double adjustment = kp * error;
+			left_m = left_m + adjustment;
+			right_m = right_m + adjustment;
 		}
-		*/
-		cout<<adjustment<<endl;
-		sleep1(1000);
-		
+		else{ 
+			left_m = 44;
+			right_m = 52;
+		}
+		set_motors(LEFT_MOTOR,left_m );
+		set_motors(RIGHT_MOTOR,right_m );
+		hardware_exchange();
+
 	}
 }  
 	

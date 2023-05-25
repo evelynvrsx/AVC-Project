@@ -25,14 +25,14 @@ void move_back(unsigned char speed){
 
 }
 /*pwm seeting between 30 -> 65 with 48 = stop*/
-void turn(unsigned char pwm , int time){
+void turn(unsigned char pwm ){
     set_motors(RIGHT_MOTOR, pwm);
     set_motors(LEFT_MOTOR, pwm);
     hardware_exchange();
-    sleep1(time);
+    /*sleep1(time);
     set_motors(RIGHT_MOTOR, MID_POINT);
     set_motors(LEFT_MOTOR, MID_POINT);
-    hardware_exchange();
+    hardware_exchange();*/
 }
 
 /*stops wheels turning*/
