@@ -39,6 +39,7 @@
     "array": "cpp",
     "ostream": "cpp",
     "new": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "numeric": "cpp"
   }
 }

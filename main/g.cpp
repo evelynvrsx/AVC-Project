@@ -7,5 +7,7 @@
 
 int main(){
     init(0);
-    stop();
+    servo_full_up();
+    
+    return 0;
 }

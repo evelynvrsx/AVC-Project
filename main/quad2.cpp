@@ -23,14 +23,14 @@ void quad2(){
     double kp = 0.05;
  
     
-	double current_time;
+
     
     double middle_point = 120;
     //double middleIndex = 160;
     
     bool q2 = true;
     
-    while (true) {
+    while (q2) {
 		int bpix = 0;
 		open_screen_stream();
 		take_picture();

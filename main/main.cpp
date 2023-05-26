@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../include/gate.hpp"
 #include "../include/quad2.hpp"
+#include "../include/quad3.hpp"
 #include "E101.h"
 
 /* main will hold a switch case to switch between algorithims*/
@@ -16,7 +17,7 @@ int main(){
     //end of camera code
     
 
-    int quad = 0;
+    int quad = 2;
     /* switch case to change between algorithims*/
     while(a){
         switch (quad){
@@ -25,6 +26,8 @@ int main(){
                 quad = 1;
             case 1:
                 quad2();
+            case 2:
+                quad3();
 
     
         }
