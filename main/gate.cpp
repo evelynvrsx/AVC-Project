@@ -22,7 +22,7 @@ void gate_open(){
     send_to_server(password);
     sleep1(200);
     move_forward(15);
-    sleep1(200);
+    sleep1(1000);
     stop();
 
 

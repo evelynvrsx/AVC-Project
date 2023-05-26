@@ -5,7 +5,7 @@
 #include <array>
 #include <algorithm>
 #include "../include/motor_contorl.hpp"
-#include <ctime>
+#include "../include/quad_change.hpp"
 
 #define RIGHT_MOTOR 1 
 #define LEFT_MOTOR  5
@@ -77,21 +77,11 @@ void quad2(){
 		set_motors(LEFT_MOTOR,left_m );
 		set_motors(RIGHT_MOTOR,right_m );
 		hardware_exchange();
+		q2 = quad_change();
 
 	}
 }  
 	
-	/*//Quadrant 3 
-	//check whether theres a
-	if ((error == 0) && (pixels[col] = 1)) {
-		turn(47,100); //turn left
-	}
-	else if ((error == 0) && (pixels[col] = 1)) {
-		turn(20,1000);
-	}
-	
-	
-    close_screen_stream();
-	return 0;
 
-}*/
+
+
