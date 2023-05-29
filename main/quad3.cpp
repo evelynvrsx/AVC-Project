@@ -93,21 +93,21 @@ void quad3(){
         }*/
         if (bpix_left > 70&& bpix_right < 20&&error_horiz<-130){
             cout<<"left"<<endl;
-            set_motors(LEFT_MOTOR,54 );
-            set_motors(RIGHT_MOTOR,42 );
-            sleep1(500);
-            set_motors(LEFT_MOTOR,42 );
-            set_motors(RIGHT_MOTOR,42 );
-            sleep1(300);
+            double adjustment = kp * error_l;
+			left_m = left_m + adjustment;
+			right_m = right_m + adjustment;
+            set_motors(LEFT_MOTOR,left_m );
+            set_motors(RIGHT_MOTOR,right_m );
+            hardware_exchange();
         }
         else if (bpix_right > 70 && bpix_left < 15&& error_horiz <-130){
             cout<<"right"<<endl;
-            set_motors(LEFT_MOTOR,54 );
-            set_motors(RIGHT_MOTOR,42 );
-            sleep1(500);
-            set_motors(LEFT_MOTOR,54 );
-            set_motors(RIGHT_MOTOR,54);
-            sleep1(300);
+            double adjustment = kp * (-1*error_r);
+			left_m = left_m + adjustment;
+			right_m = right_m + adjustment;
+            set_motors(LEFT_MOTOR,left_m );
+            set_motors(RIGHT_MOTOR,right_m );
+            hardware_exchange();
         }
     
         else{ //if (bpix_right< 30&& bpix_left<30){

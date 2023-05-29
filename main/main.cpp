@@ -17,7 +17,7 @@ int main(){
     //end of camera code
     
 
-    int quad = 2;
+    int quad = 0;
     /* switch case to change between algorithims*/
     while(a){
         switch (quad){

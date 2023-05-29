@@ -77,7 +77,7 @@ void quad2(){
 		set_motors(LEFT_MOTOR,left_m );
 		set_motors(RIGHT_MOTOR,right_m );
 		hardware_exchange();
-		//q2 = quad_change();
+		q2 = quad_change();
 
 	}
 }  

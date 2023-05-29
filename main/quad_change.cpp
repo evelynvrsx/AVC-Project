@@ -34,15 +34,15 @@ bool quad_change(){
 			int greenpixels = (int)get_pixel(row, col, 1);
 			
 			//ratio of red pixels to green pixels
-			if((redpixels/greenpixels)/2) {
-				numberofredpixels++;
+			if((redpixels > 2*greenpixels)) {
+				numberofredpixels += 1;
 			}
 		}
-	}
-    cout<<numberofredpixels<<endl; 
-	if (numberofredpixels > 300) {
+	} 
+	cout<<numberofredpixels<<endl;
+	if (numberofredpixels >= 200) {
 		cout<<"Switching to next quadrant"<<endl;
-		return false;
+        return false;
 	}
 	
 	
@@ -50,3 +50,5 @@ bool quad_change(){
 	return true;
 
 }
+
+
