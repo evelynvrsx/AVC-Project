@@ -5,6 +5,7 @@
 using namespace std;
 //setting functions for quadrant 4
 int scan_redcylinder(int redpixels) {
+	cout<<"Amount of red pixels: "<<redpixels<<endl;
 	//check whether there's a red cylinder or not
 	if (redpixels < 300) {
 		//move forward approaching the red cylinder
@@ -21,6 +22,7 @@ int scan_redcylinder(int redpixels) {
 }
 
 int scan_greencylinder(int greenpixels) {
+	cout<<"Amount of green pixels: "<<greenpixels<<endl;
 	//check whether there's a green cylinder or not
 	if (greenpixels < 300) {
 		//move forward approaching the green cylinder
@@ -36,6 +38,7 @@ int scan_greencylinder(int greenpixels) {
 }
 
 int scan_bluecylinder(int bluepixels) {
+	cout<<"Amount of blue pixels: "<<bluepixels<<endl;
 	//check whether there's a blue cylinder or not
 	if (bluepixels < 300) {
 		//move forward approaching the blue cylinder
