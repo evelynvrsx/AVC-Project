@@ -1,9 +1,71 @@
+//setting functions for quadrant 4
+int scan_redcylinder(int redpixels) {
+	//check whether there's a red cylinder or not
+	if (redpixels < 300) {
+		//move forward approaching the red cylinder
+		move_forward(12);
+		return 0;
+	}
+	else if (redpixels > 300) {
+		sleep1(1000);
+		move_back(12);
+		turn(40);
+		return 1;
+	}	
+}
+
+int scan_greencylinder(int greenpixels) {
+	//check whether there's a green cylinder or not
+	if (greenpixels < 300) {
+		//move forward approaching the green cylinder
+		move_forward(12);
+		return 0;
+	}
+	else if (greenpixels > 300) {
+		stop();
+		move_back(12);
+		turn(40);
+		return 1;
+	}	
+}
+
+int scan_bluecylinder(int bluepixels) {
+	//check whether there's a blue cylinder or not
+	if (bluepixels < 300) {
+		//move forward approaching the blue cylinder
+		move_forward(12);
+		return 0;
+	}
+	else if (bluepixels > 300) {
+		stop();
+		move_back(12);
+		turn(40);
+		return 1;
+	}	
+}
+
+int scan_redball(int redpixels) {
+	//check whether there's a red cylinder or not
+	if (redpixels >= 1) {
+		//move forward approaching the red cylinder
+		move_forward(12);
+		return 0;
+	}
+	else {
+		stop();
+		return 1;
+	}
+}
+
+
 	
 	//Quadrant 4
+	int count = 0;
 	int redpixels = 0;
 	int greenpixels = 0;
 	int bluepixels = 0;
-	int red_object_count = 0;
+	//int red_object_count = 0;
+	int row = 120;
 	
 	//put the camera up
 	servo_full_up();
@@ -17,58 +79,31 @@
 		int blue = (int)get_pixel(row, col, 2);
 		int alpha = (int)get_pixel(row, col, 3);
 		
+		
 		//detect red green and blue pixels
 		if (red > 2*green && red > 2*blue && alpha > 25) {
 			redpixels++;
 		}
-		else if (green > 2*red && green > 2*blue && alpha > 25) {
+		if (green > 2*red && green > 2*blue && alpha > 25) {
 			greenpixels++;
 		}
-		else if (blue > 2*red && blue > 2*green && alpha > 25) {
+		if (blue > 2*red && blue > 2*green && alpha > 25) {
 			bluepixels++;
 		}
 		
-		//check whether there's a red cylinder or not
-		if (redpixels < 300) {
-			//move forward approaching the red cylinder
-			move_forward(14);
-		}
-		else if (redpixels > 300) {
-			red_object_count += 1;
-			stop();
-			move_back(12);
-			turn(40); 
-			//stop
-			//reverse
-			//scan to the left for green cylinder
-		}
 		
-		//check whether there is a green cylinder or not
-		if (greenpixels < 300) {
-			//move forward approaching the green cylinder
-			move_forward(14);
+		//call functions to detect cylinders and red ball
+		if (count == 0) {
+			count += scan_redcylinder(redpixels);
 		}
-		else if (greenpixels > 300) {
-			stop();
-			move_back(12);
-			turn(56);
-			//stop
-			//reverse
-			//scan to the right for blue cylinder
+		else if (count == 1) {
+			count += scan_greencylinder(greenpixels);
 		}
-		
-		//check whether there is a blue cylinder or not
-		if (bluepixels < 300) {
-			//move forward approaching the blue cylinder
-			move_forward(14);
+		else if (count == 2) {
+			count += scan_bluecylinder(bluepixels);
 		}
-		else if (bluepixels > 300) {
-			stop();
-			move_back(12);
-			turn(40);
-			//stop
-			//reverse
-			//scan to the left for red ball
+		else if (count == 3) {
+			count += scan_redball(redpixels);
 		}
-		
 	}
+	
