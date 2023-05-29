@@ -20,7 +20,7 @@ void quad2(){
     //array to store pixels 0s and 1s
     int indexpixels[320];	//array to store 0s and 1s minus the index
     int treshold = 100;
-    double kp = 0.05;
+    double kp = 0.03;
  
     
 
@@ -77,7 +77,7 @@ void quad2(){
 		set_motors(LEFT_MOTOR,left_m );
 		set_motors(RIGHT_MOTOR,right_m );
 		hardware_exchange();
-		q2 = quad_change();
+		//q2 = quad_change();
 
 	}
 }  

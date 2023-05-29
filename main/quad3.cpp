@@ -93,22 +93,24 @@ void quad3(){
         }*/
         if (bpix_left > 70&& bpix_right < 20&&error_horiz<-130){
             cout<<"left"<<endl;
-            set_motors(LEFT_MOTOR,50 );
-            set_motors(RIGHT_MOTOR,46 );
+            set_motors(LEFT_MOTOR,54 );
+            set_motors(RIGHT_MOTOR,42 );
             sleep1(500);
-            set_motors(LEFT_MOTOR,46 );
-            set_motors(RIGHT_MOTOR,46 );
+            set_motors(LEFT_MOTOR,42 );
+            set_motors(RIGHT_MOTOR,42 );
+            sleep1(300);
         }
         else if (bpix_right > 70 && bpix_left < 15&& error_horiz <-130){
             cout<<"right"<<endl;
-            set_motors(LEFT_MOTOR,50 );
-            set_motors(RIGHT_MOTOR,46 );
+            set_motors(LEFT_MOTOR,54 );
+            set_motors(RIGHT_MOTOR,42 );
             sleep1(500);
-            set_motors(LEFT_MOTOR,50 );
-            set_motors(RIGHT_MOTOR,50 );
+            set_motors(LEFT_MOTOR,54 );
+            set_motors(RIGHT_MOTOR,54);
+            sleep1(300);
         }
     
-        else{
+        else{ //if (bpix_right< 30&& bpix_left<30){
             cout<<"straight"<<endl;
             double adjustment = kp * error_horiz;
 			left_m = left_m + adjustment;
@@ -117,6 +119,12 @@ void quad3(){
             set_motors(RIGHT_MOTOR,right_m );
             hardware_exchange();
         }
+       /* else{left_m = 52;
+			right_m = 52;
+            set_motors(LEFT_MOTOR,left_m );
+            set_motors(RIGHT_MOTOR,right_m );
+            hardware_exchange();
+            }*/
         //sleep1(1000);
     }
 }

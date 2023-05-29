@@ -26,6 +26,7 @@ int main(){
                 quad = 1;
             case 1:
                 quad2();
+                quad = 2;
             case 2:
                 quad3();
 
