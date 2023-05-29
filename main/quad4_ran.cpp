@@ -32,6 +32,7 @@ void quad4(){
             if (red_ratio > threshold){
                 pix[col]=pix[col]*1;
                 redpix++;
+                cout<<red_ratio<<"ratio"<<endl;
                 cout<<redpix<<"redpix"<<endl;
             }
             else{
@@ -41,7 +42,7 @@ void quad4(){
                 error += pix[i];
                 cout<<error<<"error"<<endl;
             }
-            if(redpix>30){
+            if(redpix>60){
                 error= error/redpix;
                 double adjustment = kp * error;
                 left_m = left_m + adjustment;
