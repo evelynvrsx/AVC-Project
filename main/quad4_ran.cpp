@@ -55,6 +55,7 @@ void quad4(){
             set_motors(RIGHT_MOTOR, right_m);
             hardware_exchange();
             if(redpix>3000){
+                sleep(1000);
                 move_back(12);
                 sleep(1500);
                 red_p = false;
