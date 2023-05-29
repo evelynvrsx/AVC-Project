@@ -98,7 +98,6 @@ int main(){
 		
 	}
     
-	
 	//Check red rectangle (for switching quadrants)
 	int totRed = 0;
 	int totGreen = 0;
@@ -122,18 +121,20 @@ int main(){
 			//get red pixels and green pixels
 			int redpixels = (int)get_pixel(row, col, 0);
 			int greenpixels = (int)get_pixel(row, col, 1);
+			int bluepixels = (int)get_pixel(row, col, 2);
+			int alpha = (int)get_pixel(row, col, 3);
 			
 			//ratio of red pixels to green pixels
-			if((redpixels > 2*greenpixels) {
-				numberofredpixels += 1;
+			if (redpixels > 2*greenpixels && redpixels > 2*bluepixels && alpha > 25) {
+				numberofredpixels++;
 			}
 		}
 	} 
 	cout<<numberofredpixels<<endl;
-	if (numberofredpixels >= 20 && numberofredpixels <= 50) {
+	if (numberofredpixels > 50) {
 		cout<<"Switching to next quadrant"<<endl;
 	}
-	
+
 	
     close_screen_stream();
 	return 0;
