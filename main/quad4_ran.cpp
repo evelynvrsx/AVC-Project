@@ -32,13 +32,14 @@ void quad4(){
             if (red_ratio > threshold){
                 pix[col]=pix[col]*1;
                 redpix++;
-                cout
+                cout<<redpix<<"redpix"<<endl;
             }
             else{
                 pix[col]=pix[col]*0;
             }
             for (int i = 0; i <320;i++){
                 error += pix[i];
+                cout<<error<<"error"<<endl;
             }
             if(redpix>30){
                 error= error/redpix;
