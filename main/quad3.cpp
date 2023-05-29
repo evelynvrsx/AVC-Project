@@ -30,6 +30,7 @@ void quad3(){
         int bpix_right = 0;
         int error_l = 0;
         int error_horiz = 0;
+        int count = 0;
         int error_r = 0;
         iota(leftcolumb, leftcolumb+240, -120);
         iota(hori_line, hori_line+320, -160);
@@ -85,46 +86,39 @@ void quad3(){
         cout<<"left "<<error_l<<endl;
         cout<<"right "<< error_l<<endl;
         */
-        cout<<"left tot "<<bpix_left<<" "<<"right tot"<<bpix_right<<" "<<"horiz"<<error_horiz<<endl;
+        //cout<<"left tot "<<bpix_left<<" "<<"right tot"<<bpix_right<<" "<<"horiz"<<error_horiz<<endl;
         
-
-	    /*if (bpix_left > 60 && bpix_right > 58){
-            cout<<"intersection"<<endl;
+	    /*if(bpix_left > 90 && bpix_right > 90){
+            cout<<"h";
+            if(count == 0){
+                set_motors(LEFT_MOTOR, 48);
+                hardware_exchange();
+                sleep1(400);
+                count++;
+            }
+            else if(count == 1){
+                set_motors(LEFT_MOTOR, 48);
+                hardware_exchange();
+                sleep1(400);
+                count++;
+            }
+            else if (count ==2){
+                set_motors(RIGHT_MOTOR, 48);
+                hardware_exchange();
+                sleep1(400);
+                count++;
+            }
         }*/
-        if (bpix_left > 70&& bpix_right < 20&&error_horiz<-130){
-            cout<<"left"<<endl;
-            double adjustment = kp * error_l;
-			left_m = left_m + adjustment;
-			right_m = right_m + adjustment;
-            set_motors(LEFT_MOTOR,left_m );
-            set_motors(RIGHT_MOTOR,right_m );
-            hardware_exchange();
-        }
-        else if (bpix_right > 70 && bpix_left < 15&& error_horiz <-130){
-            cout<<"right"<<endl;
-            double adjustment = kp * (-1*error_r);
-			left_m = left_m + adjustment;
-			right_m = right_m + adjustment;
-            set_motors(LEFT_MOTOR,left_m );
-            set_motors(RIGHT_MOTOR,right_m );
-            hardware_exchange();
-        }
-    
-        else{ //if (bpix_right< 30&& bpix_left<30){
+       
+        if(bpix_horiz){ //if (bpix_right< 30&& bpix_left<30){
             cout<<"straight"<<endl;
-            double adjustment = kp * error_horiz;
+			double adjustment = kp * error_horiz;
 			left_m = left_m + adjustment;
 			right_m = right_m + adjustment;
             set_motors(LEFT_MOTOR,left_m );
             set_motors(RIGHT_MOTOR,right_m );
             hardware_exchange();
         }
-       /* else{left_m = 52;
-			right_m = 52;
-            set_motors(LEFT_MOTOR,left_m );
-            set_motors(RIGHT_MOTOR,right_m );
-            hardware_exchange();
-            }*/
-        //sleep1(1000);
+
     }
 }
