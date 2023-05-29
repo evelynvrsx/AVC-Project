@@ -99,13 +99,39 @@ int main(){
 	}
     
 	
-	//Quadrant 3 
-	//check whether theres a
-	if ((error == 0) && (pixels[col] = 1)) {
-		turn(47,100); //turn left
-	}
-	else if ((error == 0) && (pixels[col] = 1)) {
-		turn(20,1000);
+	//Check red rectangle (for switching quadrants)
+	int totRed = 0;
+	int totGreen = 0;
+	int totBlue = 0;
+	double redness = 0.0;
+	double greenness = 0.0;
+	double blueness = 0.0;
+	int numberofredpixels = 0;
+	
+	for (int row = 0 ; row < 240 ; row++) {
+		for (int col = 0; col < 320; col++) {
+			totRed = (int)get_pixel(row, col, 0);
+			totGreen = (int)get_pixel(row, col, 1);
+			totBlue = (int)get_pixel(row, col, 2);
+			
+			//get the redness, blueness, and greenness
+			redness = (double)totRed/((double)totRed + (double)totBlue + (double)totGreen);
+			greenness = (double)totGreen/((double)totRed + (double)totBlue + (double)totGreen);
+			blueness = (double)totBlue/((double)totRed + (double)totBlue + (double)totGreen);
+			
+			//get red pixels and green pixels
+			int redpixels = (int)get_pixel(row, col, 0);
+			int greenpixels = (int)get_pixel(row, col, 1);
+			
+			//ratio of red pixels to green pixels
+			if((redpixels/greenpixels)/2) {
+				numberofredpixels += 1;
+			}
+		}
+	} 
+	cout<<numberofredpixels<<endl;
+	if (numberofredpixels > 3000) {
+		cout<<"Switching to next quadrant"<<endl;
 	}
 	
 	
