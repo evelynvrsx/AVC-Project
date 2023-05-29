@@ -7,16 +7,15 @@ using namespace std;
 int scan_redcylinder(int redpixels) {
 	cout<<"Amount of red pixels: "<<redpixels<<endl;
 	//check whether there's a red cylinder or not
-	if (redpixels < 300) {
+	if (redpixels < 200) {
 		//move forward approaching the red cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (redpixels > 300) {
+	else if (redpixels > 200) {
 		sleep1(1000);
 		move_back(12);
 		turn(40);
-		cout<<"finish red"<<endl;
 		return 1;
 	}	
 }
@@ -24,13 +23,13 @@ int scan_redcylinder(int redpixels) {
 int scan_greencylinder(int greenpixels) {
 	cout<<"Amount of green pixels: "<<greenpixels<<endl;
 	//check whether there's a green cylinder or not
-	if (greenpixels < 300) {
+	if (greenpixels < 200) {
 		//move forward approaching the green cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (greenpixels > 300) {
-		stop();
+	else if (greenpixels > 200) {
+		sleep1(1000);
 		move_back(12);
 		turn(40);
 		return 1;
@@ -40,13 +39,13 @@ int scan_greencylinder(int greenpixels) {
 int scan_bluecylinder(int bluepixels) {
 	cout<<"Amount of blue pixels: "<<bluepixels<<endl;
 	//check whether there's a blue cylinder or not
-	if (bluepixels < 300) {
+	if (bluepixels < 200) {
 		//move forward approaching the blue cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (bluepixels > 300) {
-		stop();
+	else if (bluepixels > 200) {
+		sleep1(1000);
 		move_back(12);
 		turn(40);
 		return 1;
@@ -93,10 +92,10 @@ while(true){
 		if (red > 2*green && red > 2*blue && alpha > 25) {
 			redpixels++;
 		}
-		if (green > 2*red && green > 2*blue && alpha > 25) {
+		if (green > 2*red && green > 1.5*blue && alpha > 25) {
 			greenpixels++;
 		}
-		if (blue > 2*red && blue > 2*green && alpha > 25) {
+		if (blue > 2*red && blue > 1.5*green && alpha > 25) {
 			bluepixels++;
 		}
 		
