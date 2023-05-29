@@ -5,6 +5,8 @@
 using namespace std;
 //setting functions for quadrant 4
 int scan_redcylinder(int redpixels) {
+	//turn to the right and scan for red cylinder
+	turn(56);
 	cout<<"Amount of red pixels: "<<redpixels<<endl;
 	//check whether there's a red cylinder or not
 	if (redpixels < 200) {
@@ -15,7 +17,7 @@ int scan_redcylinder(int redpixels) {
 	else if (redpixels > 200) {
 		sleep1(1000);
 		move_back(12);
-		turn(40);
+		turn(40); //scan to the left
 		return 1;
 	}	
 }
@@ -31,7 +33,7 @@ int scan_greencylinder(int greenpixels) {
 	else if (greenpixels > 200) {
 		sleep1(1000);
 		move_back(12);
-		turn(40);
+		turn(56);
 		return 1;
 	}	
 }
@@ -72,12 +74,11 @@ void quad4_b(){
 	int redpixels = 0;
 	int greenpixels = 0;
 	int bluepixels = 0;
-	//int red_object_count = 0;
 	int row = 120;
 	
 	//put the camera up
 	servo_full_up();
-while(true){
+	
 	for (int col = 0; col < 320; col++) {
 		take_picture();
 
@@ -101,20 +102,17 @@ while(true){
 		
 		
 		//call functions to detect cylinders and red ball
-		
+		if (count == 0) {
+			count += scan_redcylinder(redpixels);
+		}
+		else if (count == 1) {
+			count += scan_greencylinder(greenpixels);
+		}
+		else if (count == 2) {
+			count += scan_bluecylinder(bluepixels);
+		}
+		else if (count == 3) {
+			count += scan_redball(redpixels);
+		}
 	}
-
-	if (count == 0) {
-		count += scan_redcylinder(redpixels);
-	}
-	else if (count == 1) {
-		count += scan_greencylinder(greenpixels);
-	}
-	else if (count == 2) {
-		count += scan_bluecylinder(bluepixels);
-	}
-	else if (count == 3) {
-		count += scan_redball(redpixels);
-	}
-}
 }
