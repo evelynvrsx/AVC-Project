@@ -1,3 +1,8 @@
+#include "../include/motor_contorl.hpp"
+#include "E101.h"
+#include <iostream>
+
+using namespace std;
 //setting functions for quadrant 4
 int scan_redcylinder(int redpixels) {
 	//check whether there's a red cylinder or not
@@ -10,6 +15,7 @@ int scan_redcylinder(int redpixels) {
 		sleep1(1000);
 		move_back(12);
 		turn(40);
+		cout<<"finish red"<<endl;
 		return 1;
 	}	
 }
@@ -58,7 +64,7 @@ int scan_redball(int redpixels) {
 }
 
 
-	
+void quad4_b(){	
 	//Quadrant 4
 	int count = 0;
 	int redpixels = 0;
@@ -69,7 +75,7 @@ int scan_redball(int redpixels) {
 	
 	//put the camera up
 	servo_full_up();
-	
+while(true){
 	for (int col = 0; col < 320; col++) {
 		take_picture();
 
@@ -93,17 +99,20 @@ int scan_redball(int redpixels) {
 		
 		
 		//call functions to detect cylinders and red ball
-		if (count == 0) {
-			count += scan_redcylinder(redpixels);
-		}
-		else if (count == 1) {
-			count += scan_greencylinder(greenpixels);
-		}
-		else if (count == 2) {
-			count += scan_bluecylinder(bluepixels);
-		}
-		else if (count == 3) {
-			count += scan_redball(redpixels);
-		}
+		
 	}
-	
+
+	if (count == 0) {
+		count += scan_redcylinder(redpixels);
+	}
+	else if (count == 1) {
+		count += scan_greencylinder(greenpixels);
+	}
+	else if (count == 2) {
+		count += scan_bluecylinder(bluepixels);
+	}
+	else if (count == 3) {
+		count += scan_redball(redpixels);
+	}
+}
+}

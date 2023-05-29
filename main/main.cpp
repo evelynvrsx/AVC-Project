@@ -1,9 +1,9 @@
 #include <iostream>
+#include "E101.h"
 #include "../include/gate.hpp"
 #include "../include/quad2.hpp"
 #include "../include/quad3.hpp"
-#include "../include/quad4_ran.hpp"
-#include "E101.h"
+
 
 /* main will hold a switch case to switch between algorithims*/
 int main(){
@@ -30,9 +30,7 @@ int main(){
                 quad = 2;
             case 2:
                 quad3();
-           /* case 3:
-                quad4();
-            */
+      
     
         }
     }

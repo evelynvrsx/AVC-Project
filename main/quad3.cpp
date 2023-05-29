@@ -16,8 +16,8 @@ void quad3(){
     int hori_line[320];
     int rightcolumb[240];
     int treshold = 100;
-    int midpoint_lcolumb = 20;
-    int midpoint2_horizontal = 20;
+    int midpoint_lcolumb = 15;
+    int midpoint2_horizontal = 15;
     int midpoint3_rcolumb = 300;
     bool q3 = true;
     int white;
@@ -86,7 +86,7 @@ void quad3(){
         cout<<"left "<<error_l<<endl;
         cout<<"right "<< error_l<<endl;
         */
-        //cout<<"left tot "<<bpix_left<<" "<<"right tot"<<bpix_right<<" "<<"horiz"<<error_horiz<<endl;
+        cout<<"left tot "<<bpix_left<<" "<<"right tot"<<bpix_right<<" "<<"horiz"<<error_horiz<<endl;
         
 	    /*if(bpix_left > 90 && bpix_right > 90){
             cout<<"h";
@@ -109,16 +109,31 @@ void quad3(){
                 count++;
             }
         }*/
-       
-        if(bpix_horiz){ //if (bpix_right< 30&& bpix_left<30){
+        if(bpix_left>(2*bpix_right) && error_horiz == -140 ){
+            cout<<"left"<<endl;
+            set_motors(LEFT_MOTOR, left_m);
+            set_motors(RIGHT_MOTOR, right_m);
+            sleep1(600);
+            set_motors(LEFT_MOTOR, 48);
+            set_motors(RIGHT_MOTOR, 40);
+            hardware_exchange();
+            sleep1(700);
+        }
+        else if(bpix_right>(2*bpix_left)&& error_horiz == -140){
+            cout<<"right"<<endl;
+            set_motors(LEFT_MOTOR, )
+        }
+        else{ //if (bpix_right< 30&& bpix_left<30){
             cout<<"straight"<<endl;
-			double adjustment = kp * error_horiz;
+         
+            double adjustment = kp * error_horiz;
 			left_m = left_m + adjustment;
 			right_m = right_m + adjustment;
             set_motors(LEFT_MOTOR,left_m );
             set_motors(RIGHT_MOTOR,right_m );
             hardware_exchange();
+            
+		
         }
-
     }
 }

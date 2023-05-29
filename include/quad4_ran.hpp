@@ -1,2 +1,2 @@
 #pragma once
-void quad4(void)
+void quad4(void);
