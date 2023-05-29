@@ -93,10 +93,10 @@ void quad4_b(){
 		if (red > 2*green && red > 2*blue && alpha > 25) {
 			redpixels++;
 		}
-		if (green > 2*red && green > 1.5*blue && alpha > 25) {
+		if (green > 2*red && green > 2*blue && alpha > 25) {
 			greenpixels++;
 		}
-		if (blue > 2*red && blue > 1.5*green && alpha > 25) {
+		if (blue > 2*red && blue > 2*green && alpha > 25) {
 			bluepixels++;
 		}
 		
