@@ -1,118 +1,87 @@
-#include "../include/motor_contorl.hpp"
-#include "E101.h"
 #include <iostream>
+#include "E101.h"
+#include <numeric>
+#include <cstring>
+#include <array>
+#include <algorithm>
+#include "../include/motor_contorl.hpp"
+#include "../include/quad_change.hpp"
+
+#define RIGHT_MOTOR 1 
+#define LEFT_MOTOR  5
 
 using namespace std;
-//setting functions for quadrant 4
-int scan_redcylinder(int redpixels) {
-	//turn to the right and scan for red cylinder
-	turn(56);
-	cout<<"Amount of red pixels: "<<redpixels<<endl;
-	//check whether there's a red cylinder or not
-	if (redpixels < 100) {
-		//move forward approaching the red cylinder
-		move_forward(12);
-		return 0;
-	}
-	else if (redpixels >= 100) {
-		move_back(12);
-		turn(40); //scan to the left
-		sleep1(1000);
-		return 1;
-	}	
-}
 
-int scan_greencylinder(int greenpixels) {
-	cout<<"Amount of green pixels: "<<greenpixels<<endl;
-	//check whether there's a green cylinder or not
-	if (greenpixels < 100) {
-		//move forward approaching the green cylinder
-		move_forward(12);
-		return 0;
-	}
-	else if (greenpixels >= 100) {
-		sleep1(1000);
-		move_back(12);
-		turn(56);
-		return 1;
-	}	
-}
+int middle_point = 160; 
 
-int scan_bluecylinder(int bluepixels) {
-	cout<<"Amount of blue pixels: "<<bluepixels<<endl;
-	//check whether there's a blue cylinder or not
-	if (bluepixels < 100) {
-		//move forward approaching the blue cylinder
-		move_forward(12);
-		return 0;
-	}
-	else if (bluepixels >= 100) {
-		sleep1(1000);
-		move_back(12);
-		turn(40);
-		return 1;
-	}	
-}
-
-int scan_redball(int redpixels) {
-	//check whether there's a red cylinder or not
-	if (redpixels >= 1) {
-		//move forward approaching the red cylinder
-		move_forward(12);
-		return 0;
-	}
-	else {
-		stop();
-		return 1;
-	}
-}
-
-
-void quad4_b(){	
-	//Quadrant 4
-	int count = 0;
-	int redpixels = 0;
-	int greenpixels = 0;
-	int bluepixels = 0;
-	int row = 120;
-	
-	//put the camera up
+void quad4(){
 	servo_full_up();
-	
-	for (int col = 0; col < 320; col++) {
-		take_picture();
+    //Quadrant 4 
+    //array to store pixels 0s and 1s
+    int indexpixels[320];	//array to store 0s and 1s minus the index
+    int treshold = 100;
+    double kp = 0.03;
+    int count = 0;
 
-		//get red pixels and green pixels
-		int red = (int)get_pixel(row, col, 0);
-		int green = (int)get_pixel(row, col, 1);
-		int blue = (int)get_pixel(row, col, 2);
-		int alpha = (int)get_pixel(row, col, 3);
+    double middle_point = 120;
+    
+    bool q4 = true;
+    
+    while (q4) {
+		int redpixels = 0;
+		open_screen_stream();
+		take_picture();
+		update_screen();
 		
-		
-		//detect red green and blue pixels
-		if (red > 1.8*green && red > 1.8*blue && alpha > 25) {
-			redpixels++;
-		}
-		if (green > 1.25*red && green > 1.58*blue && alpha > 25) {
-			greenpixels++;
-		}
-		if (blue > 1.3*red && blue > 1.2*green && alpha > 25) {
-			bluepixels++;
-		}
-		
-		
-		//call functions to detect cylinders and red ball
 		if (count == 0) {
-			count += scan_redcylinder(redpixels);
+			turn(56);
 		}
-		else if (count == 1) {
-			count += scan_greencylinder(greenpixels);
+		
+		double error = 0;
+		iota(indexpixels, indexpixels+320, -160);
+
+		//check the line
+		for (int col = 0; col < 320; col++) {
+			//check the white pixels 
+			int red = get_pixel(middle_point, col, 0);
+			
+			if(red < treshold){
+				//other
+				indexpixels[col] = indexpixels[col] *1;
+				redpixels++;
+			}
+			else{
+				//red
+				indexpixels[col] = indexpixels[col] * 0;
+			}
+			
+		
 		}
-		else if (count == 2) {
-			count += scan_bluecylinder(bluepixels);
+		
+		if (redpixels >= 200) {
+			count = 1;
 		}
-		else if (count == 3) {
-			count += scan_redball(redpixels);
+		if (count = 1) {
+			double left_m = 52;
+			double right_m = 44;
+			
+			for (unsigned int i = 0; i < 320; i++) {
+				error += indexpixels[i];
+			}
+			if (redpixels){
+				error = error/redpixels;
+				double adjustment = kp * error;
+				left_m = left_m + adjustment;
+				right_m = right_m + adjustment;
+			}
+			else{ 
+				left_m = 44;
+				right_m = 52;
+			}
+			set_motors(LEFT_MOTOR,left_m );
+			set_motors(RIGHT_MOTOR,right_m );
+			hardware_exchange();
+			q4 = quad_change();
 		}
 	}
-}
+}  
