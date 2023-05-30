@@ -9,15 +9,15 @@ int scan_redcylinder(int redpixels) {
 	turn(56);
 	cout<<"Amount of red pixels: "<<redpixels<<endl;
 	//check whether there's a red cylinder or not
-	if (redpixels < 200) {
+	if (redpixels < 7) {
 		//move forward approaching the red cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (redpixels > 200) {
-		sleep1(1000);
+	else if (redpixels >= 7) {
 		move_back(12);
 		turn(40); //scan to the left
+		sleep1(1000);
 		return 1;
 	}	
 }
@@ -25,12 +25,12 @@ int scan_redcylinder(int redpixels) {
 int scan_greencylinder(int greenpixels) {
 	cout<<"Amount of green pixels: "<<greenpixels<<endl;
 	//check whether there's a green cylinder or not
-	if (greenpixels < 200) {
+	if (greenpixels < 7) {
 		//move forward approaching the green cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (greenpixels > 200) {
+	else if (greenpixels >= 7) {
 		sleep1(1000);
 		move_back(12);
 		turn(56);
@@ -41,12 +41,12 @@ int scan_greencylinder(int greenpixels) {
 int scan_bluecylinder(int bluepixels) {
 	cout<<"Amount of blue pixels: "<<bluepixels<<endl;
 	//check whether there's a blue cylinder or not
-	if (bluepixels < 200) {
+	if (bluepixels < 7) {
 		//move forward approaching the blue cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (bluepixels > 200) {
+	else if (bluepixels >= 7) {
 		sleep1(1000);
 		move_back(12);
 		turn(40);
