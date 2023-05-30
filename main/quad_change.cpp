@@ -40,7 +40,7 @@ bool quad_change(){
 		}
 	} 
 	cout<<numberofredpixels<<endl;
-	if (numberofredpixels >= 200) {
+	if (numberofredpixels >= 1000) {
 		cout<<"Switching to next quadrant"<<endl;
         return false;
 	}

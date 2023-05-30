@@ -20,7 +20,7 @@ void quad2(){
     //array to store pixels 0s and 1s
     int indexpixels[320];	//array to store 0s and 1s minus the index
     int treshold = 100;
-    double kp = 0.03;
+    double kp = 0.02;
  
     
 
