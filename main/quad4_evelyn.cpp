@@ -9,12 +9,12 @@ int scan_redcylinder(int redpixels) {
 	turn(56);
 	cout<<"Amount of red pixels: "<<redpixels<<endl;
 	//check whether there's a red cylinder or not
-	if (redpixels < 7) {
+	if (redpixels < 100) {
 		//move forward approaching the red cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (redpixels >= 7) {
+	else if (redpixels >= 100) {
 		move_back(12);
 		turn(40); //scan to the left
 		sleep1(1000);
@@ -25,12 +25,12 @@ int scan_redcylinder(int redpixels) {
 int scan_greencylinder(int greenpixels) {
 	cout<<"Amount of green pixels: "<<greenpixels<<endl;
 	//check whether there's a green cylinder or not
-	if (greenpixels < 7) {
+	if (greenpixels < 100) {
 		//move forward approaching the green cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (greenpixels >= 7) {
+	else if (greenpixels >= 100) {
 		sleep1(1000);
 		move_back(12);
 		turn(56);
@@ -41,12 +41,12 @@ int scan_greencylinder(int greenpixels) {
 int scan_bluecylinder(int bluepixels) {
 	cout<<"Amount of blue pixels: "<<bluepixels<<endl;
 	//check whether there's a blue cylinder or not
-	if (bluepixels < 7) {
+	if (bluepixels < 100) {
 		//move forward approaching the blue cylinder
 		move_forward(12);
 		return 0;
 	}
-	else if (bluepixels >= 7) {
+	else if (bluepixels >= 100) {
 		sleep1(1000);
 		move_back(12);
 		turn(40);
@@ -90,13 +90,13 @@ void quad4_b(){
 		
 		
 		//detect red green and blue pixels
-		if (red > 2*green && red > 2*blue && alpha > 25) {
+		if (red > 1.8*green && red > 1.8*blue && alpha > 25) {
 			redpixels++;
 		}
-		if (green > 2*red && green > 2*blue && alpha > 25) {
+		if (green > 1.25*red && green > 1.58*blue && alpha > 25) {
 			greenpixels++;
 		}
-		if (blue > 2*red && blue > 2*green && alpha > 25) {
+		if (blue > 1.3*red && blue > 1.2*green && alpha > 25) {
 			bluepixels++;
 		}
 		
