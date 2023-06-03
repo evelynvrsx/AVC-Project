@@ -191,7 +191,7 @@ void quad3(){
         */
         //cout<<"left tot "<<bpix_left<<" "<<"right tot"<<bpix_right<<" "<<"horiz"<<error_horiz<<endl;
         
-	    if(bpix_left > 70 && bpix_right > 70 && (error_horiz<= -130 || (error_horiz <=15 && error_horiz>=0))){
+	    if(bpix_left > 70 && bpix_right > 70 && (error_horiz<= -130 || (error_horiz <=20 && error_horiz>=0))){
             cout<<"inter"<<endl;
             if(count == 0){
                 centerd =center(error_horiz,centerd, "right");
