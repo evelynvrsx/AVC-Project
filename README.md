@@ -1,4 +1,5 @@
 # AVC Team 5
+The Autonomous Vehicle Challenge (AVC) at Victoria University brings engineering students together to construct and program autonomous vehicles for navigating a path independently. Despite time constraints and limited hardware and software experience, Team 5 successfully built a functional autonomous vehicle. However, further development is possible as the result only covers 80% of the course. While the hardware design was flawless, coding presented challenges. Our team's experiences with time management and teamwork offer valuable insights for future projects, highlighting areas for improvement and providing lessons on successful project execution.
 
 # Deadlines
 - AVC project plan 2.5% 12 may
